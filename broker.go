@@ -934,9 +934,9 @@ func (b *Broker) sendAndReceiveSASLPlainAuth() error {
 	// but not the handshake
 	saslHandshake := SASLHandshakeV0
 	if b.conf.Net.SASL.Handshake {
-		if b.conf.Version.IsAtLeast(V1_0_0_0) {
-			saslHandshake = SASLHandshakeV1
-		}
+		//if b.conf.Version.IsAtLeast(V1_0_0_0) {
+		//	saslHandshake = SASLHandshakeV1
+		//}
 		handshakeErr := b.sendAndReceiveSASLHandshake(SASLTypePlaintext, saslHandshake)
 		if handshakeErr != nil {
 			Logger.Printf("Error while performing SASL handshake %s\n", b.addr)
